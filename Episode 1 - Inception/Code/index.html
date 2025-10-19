@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaste react!</title>
+</head>
+<body>
+    <div id="root">
+        <h1>Not render</h1>
+    </div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        const h=React.createElement("h1",{},"Namestae react!");
+        const h1=React.createElement("h1",{},"heading 1");
+        const h2=React.createElement("h1",{},"heading 2");
+        const div=React.createElement("section",{id:"hi"},[h1,h2]);
+        // const h1=React.createElement("h1",{ id:"jiei",class:"sss" },"Namestaew react!");
+        const root=ReactDOM.createRoot(document.getElementById("root"));
+
+        // root.render(h1);
+        root.render(h);// overwrite all thiks inside
+        root.render(div);// overwrite all thiks inside          
+    </script>
+</body>
+</html>
