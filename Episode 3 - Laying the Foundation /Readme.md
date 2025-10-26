@@ -1,4 +1,4 @@
-# ⚡ Episode 3: Laying the Foundation
+# ⚡ Episode 3: Laying the Foundation by Akshay Saini
 
 In this episode, I explored the **core building blocks of React** — from JSX to Components — understanding how React truly works behind the scenes. This laid the foundation for creating clean, structured, and dynamic user interfaces.
 
