@@ -1,4 +1,4 @@
-# Episode 2 – Igniting Our App (Overview)
+# Episode 2 – Igniting Our App by Akshay Saini (Overview) 
 
 This file lists all the **topics and questions** covered in Episode 2 – Igniting Our App. Use this file to quickly check what you learned and track your progress.
 
