@@ -1,0 +1,40 @@
+main{
+    width: 95%;
+    margin:50px auto;
+}
+.search-container{
+    margin-bottom: 30px;
+    text-align: center;
+
+    
+}
+.search-container input{
+    width: 30%;
+    padding:10px 50px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #3f3d3d;;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+.search-container input::placeholder{
+    color: #cccccc;
+}
+.search-container button{
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    color: #cccccc;
+    border-radius: 0px 20px 20px 0px;
+} 
+.restaurant-container{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: stretch;
+    align-items: center;
+    width: auto;
+    display: flex;
+}  

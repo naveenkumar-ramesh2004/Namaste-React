@@ -1,0 +1,48 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+.restro-card{
+    /* box-shadow: -1px 5px 10px 5px rgba(112, 112, 112, .2); */
+    transition: 0.3s;
+    width: 300px;
+    /* border-radius: 5px; */
+    margin: 20px;
+    padding: 10px;
+}
+.restro-card:hover{
+    transform: scale(0.94);
+}
+.restro-card img{
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+}
+.restro-card h3{
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    font-family: "PT Sans", Calibri, sans-serif;
+}
+.restro-card .cuisine{
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555555;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.restro-card .restro-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight:600;
+}
+.restro-card .restro-details .rating{
+    background-color: #00ad1d;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
