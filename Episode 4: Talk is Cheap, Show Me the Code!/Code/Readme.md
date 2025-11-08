@@ -12,3 +12,4 @@
             - `Render` your cards with `dynamic data of restaurants`
             - Use `Array.map` to render all the restaurants
 
+[Preview](preview.png)
