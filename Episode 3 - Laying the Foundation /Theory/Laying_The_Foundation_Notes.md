@@ -84,7 +84,7 @@ The `type` attribute in `<script>` tells the browser how to handle the script.
 ---
 
 ## 7. What package does Vite use as Transpiler?
-Vite uses **esbuild** internally — a super-fast bundler and transpiler written in **Go**.  
+Vite uses `esbuild` internally — a super-fast bundler and transpiler written in **Go**.  
 It’s much faster than Babel and works perfectly for modern projects.
 
 ---
@@ -138,6 +138,47 @@ class Welcome extends React.Component {
 
 ## 10. Naming Convention of Components
 - Component names **must start with a capital letter**.
+---
+
+## ❌ Wrong (Will break React)
+
+```jsx
+function header() {
+  return <h1>Hello</h1>;
+}
+```
+
+### Why this is wrong ❌
+
+* React treats `header` as a **normal HTML tag**
+* It is NOT treated as a React component
+
+---
+
+## ✅ Correct (React Component)
+
+```jsx
+function Header() {
+  return <h1>Hello</h1>;
+}
+```
+
+### Why this works ✅
+
+* `Header` starts with a **capital letter**
+* React understands it as a **custom React component**
+
+---
+
+## 🧠 How React decides (Important Concept)
+
+| Name Style                  | React Treats It As |
+| --------------------------- | ------------------ |
+| lowercase (`div`, `header`) | HTML element       |
+| Capitalized (`Header`)      | React component    |
+
+---
+
 - Files usually match the component name.  
 Example: `Header.js` contains `Header` component.
 
