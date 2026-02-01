@@ -142,6 +142,130 @@ If you buy a whole pizza but eat only 2 slices — tree shaking ensures only tho
 **Definition:**
 > Tree shaking is the process of removing unused code from the final JavaScript bundle to reduce file size.
 
+# 🌳 Tree Shaking in React + Vite
+
+## What is Tree Shaking?
+
+**Tree Shaking** is a build-time optimization technique that removes **unused code** from the final JavaScript bundle.
+
+> It helps reduce bundle size and improve application performance.
+
+---
+
+## Who Performs Tree Shaking?
+
+Tree Shaking is performed by **module bundlers**, not by the browser.
+
+In a **React + Vite** project:
+
+* **Vite** handles development and build
+* **Rollup** (used internally by Vite) performs **tree shaking** during production build
+
+---
+
+## Project Structure
+
+```
+src/
+ ├── utils.js
+ ├── App.jsx
+ └── main.jsx
+```
+
+---
+
+## utils.js (Multiple Exports)
+
+```js
+// utils.js
+export function add(a, b) {
+  return a + b;
+}
+
+export function sub(a, b) {
+  return a - b;
+}
+
+export function mul(a, b) {
+  return a * b;
+}
+```
+
+---
+
+## App.jsx (Using Only One Function)
+
+```jsx
+// App.jsx
+import { add } from "./utils";
+
+function App() {
+  return (
+    <h1>Result: {add(2, 3)}</h1>
+  );
+}
+
+export default App;
+```
+
+---
+
+## What Happens During Build?
+
+When you run:
+
+```bash
+npm run build
+```
+
+* Vite sends the code to Rollup
+* Rollup analyzes the imports
+* Unused exports (`sub`, `mul`) are removed
+* Only the used function (`add`) remains
+
+➡️ This process is called **Tree Shaking** 🌳✂️
+
+---
+
+## Important Rules
+
+### ✅ Tree Shaking Works With (ES Modules)
+
+```js
+import { add } from "./utils";
+```
+
+### ❌ Tree Shaking Does NOT Work Well With
+
+```js
+import * as utils from "./utils";
+```
+
+```js
+const utils = require("./utils"); // CommonJS
+```
+
+---
+
+## Interview One-Line Answer
+
+> **Tree Shaking is performed by Rollup during the production build in a React + Vite application to remove unused ES module code.**
+
+---
+
+## Ultra-Short Interview Answer
+
+> **Vite uses Rollup, and Rollup does Tree Shaking.**
+
+---
+
+## Key Benefits
+
+* Smaller bundle size
+* Faster load time
+* Better performance
+
+
 ---
 
 ### 8. Hot Module Replacement (HMR)
@@ -165,6 +289,7 @@ Like cooking — when you add salt, you instantly taste the change without resta
 3. Optimized Production Builds
 4. Plugin Support
 5. Minimal Configuration
+6. Tree shaking by Roll up
 
 **Describe 3:**
 - Super Fast: starts server instantly using ES modules.
@@ -253,6 +378,8 @@ Because it ensures consistency between developers. Editing it manually can break
   "not dead"
 ]
 ```
+> By default, Vite handles browser compatibility for modern browsers implicitly, so we don’t need to configure it unless we want to support older browsers then use
+`@vitejs/plugin-legacy`
 
 ---
 
@@ -275,6 +402,138 @@ Because it ensures consistency between developers. Editing it manually can break
 ```html
 <script type="module" src="main.js"></script>
 ```
+# 🔹 ES Modules (ESM)
+
+## What are ES Modules?
+
+**ES Modules (ESM)** are the **official JavaScript module system** that allow us to **split code into multiple files** and **share code using `import` and `export`.**
+
+👉 Introduced in **ES6 (2015)**.
+
+---
+
+## Why do we need ES Modules? (Real reason)
+
+### ❌ Before ES Modules
+
+* One big JavaScript file
+* Hard to maintain
+* Global variable conflicts
+* Slow loading
+
+### ✅ With ES Modules
+
+* Clean file separation
+* Reusable code
+* Better performance
+* Works perfectly with modern tools like React and Vite
+
+---
+
+## Basic syntax (must remember ⭐)
+
+### Export
+
+```js
+// math.js
+export function add(a, b) {
+  return a + b;
+}
+```
+
+### Import
+
+```js
+// app.js
+import { add } from "./math";
+
+console.log(add(2, 3));
+```
+
+---
+
+## Types of ES Module exports
+
+### 1️⃣ Named export
+
+```js
+export const pi = 3.14;
+export function add() {}
+```
+
+Import:
+
+```js
+import { pi, add } from "./math";
+```
+
+---
+
+### 2️⃣ Default export
+
+```js
+export default function App() {}
+```
+
+Import:
+
+```js
+import App from "./App";
+```
+
+---
+
+## ES Modules in React + Vite (VERY IMPORTANT)
+
+In React + Vite:
+
+* ES Modules are **mandatory**
+* Browser loads modules like this:
+
+```html
+<script type="module" src="/src/main.jsx"></script>
+```
+
+👉 This is why Vite is **fast** ⚡
+👉 No bundling needed in dev mode
+
+---
+
+## How ES Modules help Vite
+
+### ✅ Tree Shaking 🌳
+
+```js
+export function add() {}
+export function sub() {}
+```
+
+```js
+import { add } from "./math";
+```
+
+➡️ Unused `sub` is removed in production
+
+---
+
+### ✅ Lazy loading
+
+```js
+import("./Chart");
+```
+
+Loads code **only when needed**
+
+---
+
+## ES Modules vs CommonJS (Interview Table)
+
+| Feature         | ES Modules        | CommonJS                   |
+| --------------- | ----------------- | -------------------------- |
+| Syntax          | `import / export` | `require / module.exports` |
+| Tree shaking    | ✅ Yes             | ❌ No                       |
+| Browser support | ✅ Native          | ❌ No                       |
+| Used in Vite    | ✅ Yes             | ❌ No                       |
 
 ---
 
