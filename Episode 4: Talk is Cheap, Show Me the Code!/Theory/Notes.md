@@ -158,6 +158,104 @@ Avoid using index as key when elements are added, removed, or reordered.
 ---
 
 ## 10. What is Props in React?
+## 1. Parameter vs Argument
+
+### 🔹 Parameter
+- A variable defined in a function
+```js
+function greet(name) {
+  console.log(name);
+}
+```
+👉 `name` is a **parameter**
+
+---
+
+### 🔹 Argument
+- The actual value passed to the function
+```js
+greet("Naveen");
+```
+👉 `"Naveen"` is an **argument**
+
+---
+
+### 🧠 Key Difference
+
+| Parameter | Argument |
+|----------|---------|
+| Placeholder | Actual value |
+| Defined in function | Passed during function call |
+
+---
+
+## 2. Props in React
+
+### 🔹 What is Props?
+- Props are used to pass data from parent to child component
+
+```jsx
+function Child(props) {
+  return <h1>{props.name}</h1>;
+}
+
+function App() {
+  return <Child name="Naveen" />;
+}
+```
+
+---
+
+## 3. How Props Work Internally
+
+JSX:
+```jsx
+<Child name="Naveen" age={22} />
+```
+
+Converted to:
+```js
+Child({ name: "Naveen", age: 22 });
+```
+
+---
+
+## 4. Props Stored as Object
+
+👉 Props are always stored as an **object**
+
+```js
+{
+  name: "Naveen",
+  age: 22
+}
+```
+
+Accessing:
+```js
+props.name
+props.age
+```
+
+---
+
+## 5. Destructuring Props
+
+```js
+function Child({ name, age }) {
+  return <h1>{name} - {age}</h1>;
+}
+```
+
+---
+
+## 🧠 Final Understanding
+
+- Parameter → function variable
+- Argument → actual value
+- Props → object containing arguments passed in JSX
+
+---
 **Props (Properties)** are like **function arguments** for React components.  
 They are used to **pass data** from parent to child components.
 
