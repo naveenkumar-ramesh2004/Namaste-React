@@ -68,7 +68,7 @@ Packing all your clothes, shoes, and items in a single suitcase when going on a 
 **How it helps:**
 - Starts a local server.
 - Converts modern JS → browser-compatible JS.
-- Automatically reloads the browser when code changes (HMR).
+- Automatically reloads the browser when code changes (HMR-Hot Module Replacement (HMR) is a development tool feature that exchanges, adds, or removes code modules in a running application in real-time, without requiring a full browser page refresh).
 
 **Real-world example:**
 Imagine a chef has an assistant who keeps your ingredients ready while you cook — that’s Vite. You focus on the recipe (coding), Vite handles preparation (bundling, serving, reloading).
